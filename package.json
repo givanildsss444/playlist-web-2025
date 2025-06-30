@@ -1,0 +1,26 @@
+{
+  "name": "pweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx nodemon server.js",
+    "test": "cross-env NODE_ENV=test mocha tests/**/*.test.js --exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "chai": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^11.4.0",
+    "sequelize-test-helpers": "^1.4.3",
+    "sinon": "^20.0.0"
+  }
+}
