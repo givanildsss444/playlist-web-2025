@@ -11,7 +11,7 @@ describe('Playlist Model', () => {
     const playlist = await db.Playlist.create({
       id_usuario: usuario.id,
       nome: 'Playlist Top 10',
-      data_criacao: new Date("2025/07/09")
+      data_criacao: new Date("2024/07/09")
     });
 
     expect(playlist).to.have.property('id');

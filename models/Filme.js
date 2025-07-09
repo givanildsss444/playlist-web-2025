@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
 export default (sequelize) => {
   const Filme = sequelize.define('Filme', {
@@ -8,7 +8,7 @@ export default (sequelize) => {
       primaryKey: true,
     },
     titulo: {
-      type: DataTypes.STRING(200),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     genero: {
@@ -18,13 +18,20 @@ export default (sequelize) => {
     duracao: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 1, 
+      },
     },
     ano_lancamento: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 1895, 
+        max: new Date().getFullYear(), 
+      },
     },
     nota_avaliacao: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.DECIMAL(3, 2),
       validate: {
         min: 0,
         max: 10,
@@ -32,10 +39,8 @@ export default (sequelize) => {
     },
     created_at: {
       type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: Sequelize.NOW,
-    }
-    
+      defaultValue: DataTypes.NOW,
+    },
   }, {
     tableName: 'filmes',
     timestamps: false,

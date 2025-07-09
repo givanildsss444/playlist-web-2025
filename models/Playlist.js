@@ -18,6 +18,7 @@ export default (sequelize) => {
       type: DataTypes.DATE,
       default: Sequelize.NOW
     },
+    
   }, {
     tableName: 'playlists',
     timestamps: false,

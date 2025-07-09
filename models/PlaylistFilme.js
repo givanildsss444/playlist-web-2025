@@ -36,6 +36,13 @@ export default (sequelize) => {
         max: 5,
       },
     },
+    tempo_assistido: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      validate: {
+        min: 0,
+      }
+    },
   }, {
     tableName: 'playlist_filmes',
     timestamps: false,
