@@ -51,4 +51,12 @@ describe('Usuario Model', () => {
       expect(error.name).to.equal('SequelizeValidationError');
     }
   });
+  
+  it('Deve permitir criar múltiplos usuários distintos', async () => {
+    const usuario1 = await db.Usuario.create({ login: 'multi01', nome: 'Usuário 1' });
+    const usuario2 = await db.Usuario.create({ login: 'multi02', nome: 'Usuário 2' });
+
+    expect(usuario1.login).to.not.equal(usuario2.login);
+    expect(usuario1.nome).to.not.equal(usuario2.nome);
+  });
 });
